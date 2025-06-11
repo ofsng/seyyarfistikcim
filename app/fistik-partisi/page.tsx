@@ -31,7 +31,7 @@ export default function FistikPartisiPage() {
                 <Calendar className="h-6 w-6 text-orange-600" />
                 <div>
                   <h3 className="font-bold text-orange-800">Tarih</h3>
-                  <p className="text-gray-700">15 Mayıs 2025, Cumartesi</p>
+                  <p className="text-gray-700">30 Haziran 2025, Cumartesi</p>
                 </div>
               </div>
 
@@ -39,7 +39,7 @@ export default function FistikPartisiPage() {
                 <Clock className="h-6 w-6 text-orange-600" />
                 <div>
                   <h3 className="font-bold text-orange-800">Saat</h3>
-                  <p className="text-gray-700">20:00 - 02:00</p>
+                  <p className="text-gray-700">16:00 - 20:00</p>
                 </div>
               </div>
 
@@ -57,7 +57,7 @@ export default function FistikPartisiPage() {
                 <Users className="h-6 w-6 text-orange-600" />
                 <div>
                   <h3 className="font-bold text-orange-800">Kapasite</h3>
-                  <p className="text-gray-700">500 Kişi</p>
+                  <p className="text-gray-700">50 Kişi (25 kız, 25 erkek)</p>
                 </div>
               </div>
 
@@ -84,24 +84,24 @@ export default function FistikPartisiPage() {
             <h3 className="text-2xl font-bold text-orange-800 mb-6">Program</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
+                <span className="font-bold text-orange-600 w-16">16:00</span>
+                <span className="text-gray-700">Buluşma ve karşılama fıstığı</span>
+              </div>
+              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
+                <span className="font-bold text-orange-600 w-16">17:00</span>
+                <span className="text-gray-700">Seyyar Fıstıkçım ile içerik üretimi!</span>
+              </div>
+              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
+                <span className="font-bold text-orange-600 w-16">18:00</span>
+                <span className="text-gray-700">DJ performansı ve dans başlıyor</span>
+              </div>
+              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
+                <span className="font-bold text-orange-600 w-16">19:00</span>
+                <span className="text-gray-700">Yarışmalar ve hediye dağıtımı</span>
+              </div>
+              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
                 <span className="font-bold text-orange-600 w-16">20:00</span>
-                <span className="text-gray-700">Kapılar açılır, karşılama fıstığı</span>
-              </div>
-              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
-                <span className="font-bold text-orange-600 w-16">20:30</span>
-                <span className="text-gray-700">Seyyar Fıstıkçım sahne alıyor!</span>
-              </div>
-              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
-                <span className="font-bold text-orange-600 w-16">21:00</span>
-                <span className="text-gray-700">DJ performansı başlıyor</span>
-              </div>
-              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
-                <span className="font-bold text-orange-600 w-16">22:00</span>
-                <span className="text-gray-700">Büyük çekiliş ve hediye dağıtımı</span>
-              </div>
-              <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
-                <span className="font-bold text-orange-600 w-16">23:00</span>
-                <span className="text-gray-700">Dans yarışması</span>
+                <span className="text-gray-700">Etkinlik bitişi</span>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function FistikPartisiPage() {
         <div className="bg-white/95 rounded-xl p-8">
           <h2 className="text-3xl font-bold text-orange-800 mb-6 text-center">Fıstık Partisi'ne Katıl!</h2>
           <p className="text-center text-gray-700 mb-8">
-            Aşağıdaki formu doldurarak etkinliğimize ücretsiz katılabilirsiniz.
+            Aşağıdaki formu doldurarak etkinliğimize katılabilirsiniz.
           </p>
 
           <div className="w-full">

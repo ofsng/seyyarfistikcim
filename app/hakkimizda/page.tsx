@@ -1,10 +1,12 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Instagram, Music, Users, Heart, Eye, Youtube, MessageCircle } from "lucide-react"
 
-export default function SayfalarimizPage() {
+export default function hakkimizdaPage() {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -18,7 +20,7 @@ export default function SayfalarimizPage() {
               height={100}
               className="animate-bounce mr-6 drop-shadow-2xl"
             />
-            <h1 className="text-6xl font-bold text-white drop-shadow-lg">Sayfalarımız</h1>
+            <h1 className="text-6xl font-bold text-white drop-shadow-lg">Hakkımızda</h1>
           </div>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-medium">
             Sosyal medyada bizi takip edin! Günlük eğlence, fıstık hikayeleri ve topluluk etkinlikleri.
@@ -268,6 +270,96 @@ export default function SayfalarimizPage() {
                   className="mx-auto animate-pulse drop-shadow-2xl"
                 />
                 <p className="text-orange-600 font-bold mt-6 text-xl">"Fıstık sevgisiyle büyüyen topluluk!"</p>
+              </div>
+            </div>
+
+            {/* Projelerimiz */}
+            <div className="mt-16 space-y-12">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-8 rounded-2xl text-white">
+                <h3 className="text-3xl font-bold mb-6">Nutlab</h3>
+                <p className="text-lg mb-6">
+                  Nutlab, ofis ve oyun alanı olarak kullanılabilecek modern bir mekan projesidir. İnsanların bir araya gelip çalışabilecekleri, oyun oynayabilecekleri ve sosyalleşebilecekleri bir alan sunuyoruz.
+                </p>
+                <div className="bg-white/10 p-4 rounded-xl">
+                  <h4 className="text-xl font-bold mb-4">Nutlab Sunumu</h4>
+                  <iframe
+                    src="/nutlab.pdf"
+                    className="w-full h-[500px] rounded-lg"
+                    title="Nutlab Sunumu"
+                  />
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 p-8 rounded-2xl text-white">
+                <h3 className="text-3xl font-bold mb-6">Fıstık Partisi</h3>
+                <p className="text-lg mb-6">
+                  Fıstık Partisi, topluluğumuzun en eğlenceli etkinliklerinden biridir. Her ay düzenlediğimiz bu partilerde fıstık temalı oyunlar, yarışmalar ve eğlenceli aktivitelerle unutulmaz anlar yaşıyoruz.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white/10 p-4 rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Etkinlikler</h4>
+                    <ul className="space-y-2">
+                      <li>• Fıstık yeme yarışmaları</li>
+                      <li>• Canlı DJ performansı</li>
+                      <li>• Müzik ve dans</li>
+                      <li>• Hediyeler ve içerik üretimi</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white/10 p-4 rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Katılım</h4>
+                    <p>
+                      Herkesi bekliyoruz! WhatsApp grubumuza katılarak etkinliklerden haberdar olabilirsiniz.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-8 rounded-2xl text-white">
+                <h3 className="text-3xl font-bold mb-6">Türkiye'yi Geziyoruz!</h3>
+                <p className="text-lg mb-6">
+                  Türkiye'nin dört bir yanını geziyor, fıstık kültürünü yayıyor ve yeni arkadaşlıklar kuruyoruz. Her şehirde farklı deneyimler yaşıyor, yerel kültürleri keşfediyoruz.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white/10 p-4 rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Gezilerimiz</h4>
+                    <ul className="space-y-2">
+                      <li>• Şehir turları</li>
+                      <li>• Yerel lezzetler</li>
+                      <li>• Kültürel etkinlikler</li>
+                      <li>• Topluluk buluşmaları</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white/10 p-4 rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Katılım</h4>
+                    <p>
+                      Gezilerimize katılmak için sosyal medya hesaplarımızı takip edin ve WhatsApp grubumuza katılın.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-8 rounded-2xl text-white">
+                <h3 className="text-3xl font-bold mb-6">Fıstık İkram Et</h3>
+                <p className="text-lg mb-6">
+                  Online destekçilerimizin yardımıyla sokaktaki insanlara fıstık ikram ediyoruz. Bu proje ile hem insanları mutlu ediyor hem de fıstık kültürünü yayıyoruz.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white/10 p-4 rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Nasıl Katılabilirsiniz?</h4>
+                    <ul className="space-y-2">
+                      <li>• Online bağış yaparak</li>
+                      <li>• Gönüllü olarak</li>
+                      <li>• Sosyal medyada paylaşarak</li>
+                      <li>• Etkinliklere katılarak</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white/10 p-4 rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Destekçilerimiz</h4>
+                    <p>
+                      Her ay binlerce kişiye ulaşıyoruz. Siz de destekçimiz olun, mutluluğu paylaşın!
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </CardContent>

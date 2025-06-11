@@ -15,13 +15,13 @@ export function Navigation() {
     { href: "/magaza", label: "Mağaza", icon: ShoppingBag },
     { href: "/fistik-partisi", label: "Fıstık Partisi", icon: Calendar },
     { href: "/duyurular", label: "Duyurular", icon: Megaphone },
-    { href: "/sayfalarimiz", label: "Sayfalarımız", icon: Users },
+    { href: "/hakkimizda", label: "Hakkımızda", icon: Users },
     { href: "/iletisim", label: "İletişim", icon: Mail },
     { href: "/destek", label: "Destek", icon: Heart },
   ]
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md shadow-2xl sticky top-0 z-50 border-b-4 border-orange-400">
+    <nav className="bg-white/95 backdrop-blur-md shadow-2xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}

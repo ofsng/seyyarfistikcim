@@ -1,8 +1,11 @@
+"use client"
+
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, Share2, Heart } from "lucide-react"
+import { Calendar, Share2 } from "lucide-react"
+import { toast } from "sonner"
 
 export default function DuyurularPage() {
   const announcements = [
@@ -81,6 +84,28 @@ export default function DuyurularPage() {
     }
   }
 
+  const handleShare = async (announcement: any) => {
+    const shareData = {
+      title: announcement.title,
+      text: announcement.content,
+      url: `${window.location.origin}/duyurular?id=${announcement.id}`,
+    }
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData)
+        toast.success("Duyuru başarıyla paylaşıldı!")
+      } else {
+        await navigator.clipboard.writeText(shareData.url)
+        toast.success("Duyuru linki kopyalandı!")
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name !== "AbortError") {
+        toast.error("Paylaşım sırasında bir hata oluştu.")
+      }
+    }
+  }
+
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -133,15 +158,14 @@ export default function DuyurularPage() {
                       <Calendar className="h-4 w-4 mr-2" />
                       <span>{announcement.date}</span>
                     </div>
-                    <div className="flex space-x-2">
-                      <Button variant="secondary" size="sm">
-                        <Share2 className="h-4 w-4 mr-2" />
-                        Paylaş
-                      </Button>
-                      <Button variant="secondary" size="sm">
-                        <Heart className="h-4 w-4" />
-                      </Button>
-                    </div>
+                    <Button 
+                      variant="secondary" 
+                      size="sm"
+                      onClick={() => handleShare(announcement)}
+                    >
+                      <Share2 className="h-4 w-4 mr-2" />
+                      Paylaş
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -186,14 +210,13 @@ export default function DuyurularPage() {
                     >
                       Devamını Oku
                     </Button>
-                    <div className="flex space-x-2">
-                      <Button variant="ghost" size="sm">
-                        <Share2 className="h-4 w-4" />
-                      </Button>
-                      <Button variant="ghost" size="sm">
-                        <Heart className="h-4 w-4" />
-                      </Button>
-                    </div>
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => handleShare(announcement)}
+                    >
+                      <Share2 className="h-4 w-4" />
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

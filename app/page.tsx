@@ -1,11 +1,28 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Users, Megaphone, ShoppingBag, Sparkles, ArrowRight } from "lucide-react"
+import { useState } from "react"
 
 export default function HomePage() {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = (url: string, title: string) => {
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        url: url,
+      });
+    } else {
+      navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -85,7 +102,6 @@ export default function HomePage() {
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-3">
                   <Badge className="bg-red-500 text-white font-semibold px-3 py-1 rounded-full">YENİ!</Badge>
-                  <Sparkles className="h-6 w-6 text-yellow-500" />
                 </div>
                 <CardTitle className="text-orange-800 text-xl font-bold">Büyük Fıstık Partisi Geliyor!</CardTitle>
                 <CardDescription className="text-gray-600 font-medium">15 Mayıs 2025</CardDescription>
@@ -95,11 +111,22 @@ export default function HomePage() {
                   Bu ayın en büyük etkinliği! Müzik, dans, fıstık ve sürprizlerle dolu bir gece sizi bekliyor.
                 </p>
                 <Button
-                  asChild
-                  className="w-full bg-orange-600 hover:bg-orange-700 font-bold py-3 rounded-xl shadow-lg hover:shadow-orange-200/50 transition-all duration-300"
+                  type="button"
+                  onClick={() => handleShare(
+                    typeof window !== "undefined" ? window.location.origin + "/fistik-partisi" : "",
+                    "Büyük Fıstık Partisi Geliyor!"
+                  )}
+                  className="flex items-center gap-2 border px-4 py-2 rounded-md text-sm font-semibold bg-white hover:bg-orange-50 text-orange-800 border-orange-200 shadow-sm transition-all"
                 >
-                  <Link href="/fistik-partisi">Bilet Al</Link>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-9A2.25 2.25 0 002.25 5.25v13.5A2.25 2.25 0 004.5 21h9a2.25 2.25 0 002.25-2.25V15" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L21 10.5m0 0l-3.75 3.75M21 10.5H9" />
+                  </svg>
+                  Paylaş
                 </Button>
+                {copied && (
+                  <span className="ml-2 text-green-600 text-xs font-medium">Bağlantı kopyalandı!</span>
+                )}
               </CardContent>
             </Card>
 
@@ -107,7 +134,6 @@ export default function HomePage() {
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-3">
                   <Badge className="bg-blue-500 text-white font-semibold px-3 py-1 rounded-full">KAMPANYA</Badge>
-                  <ShoppingBag className="h-6 w-6 text-orange-500" />
                 </div>
                 <CardTitle className="text-orange-800 text-xl font-bold">Yeni Ürünler Mağazada!</CardTitle>
                 <CardDescription className="text-gray-600 font-medium">10 Mayıs 2025</CardDescription>
@@ -117,12 +143,22 @@ export default function HomePage() {
                   Özel tasarım tişörtler, şapkalar ve daha fazlası! Sınırlı sayıda, kaçırmayın.
                 </p>
                 <Button
-                  asChild
-                  variant="outline"
-                  className="w-full border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-orange-200/50 transition-all duration-300"
+                  type="button"
+                  onClick={() => handleShare(
+                    typeof window !== "undefined" ? window.location.origin + "/magaza" : "",
+                    "Yeni Ürünler Mağazada!"
+                  )}
+                  className="flex items-center gap-2 border px-4 py-2 rounded-md text-sm font-semibold bg-white hover:bg-orange-50 text-orange-800 border-orange-200 shadow-sm transition-all"
                 >
-                  <Link href="/magaza">Mağazayı Gör</Link>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-9A2.25 2.25 0 002.25 5.25v13.5A2.25 2.25 0 004.5 21h9a2.25 2.25 0 002.25-2.25V15" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L21 10.5m0 0l-3.75 3.75M21 10.5H9" />
+                  </svg>
+                  Paylaş
                 </Button>
+                {copied && (
+                  <span className="ml-2 text-green-600 text-xs font-medium">Bağlantı kopyalandı!</span>
+                )}
               </CardContent>
             </Card>
 
@@ -130,7 +166,6 @@ export default function HomePage() {
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-3">
                   <Badge className="bg-green-500 text-white font-semibold px-3 py-1 rounded-full">TOPLULUK</Badge>
-                  <Users className="h-6 w-6 text-green-500" />
                 </div>
                 <CardTitle className="text-orange-800 text-xl font-bold">35K Takipçi Hediyesi!</CardTitle>
                 <CardDescription className="text-gray-600 font-medium">5 Mayıs 2025</CardDescription>
@@ -140,12 +175,22 @@ export default function HomePage() {
                   35.000 takipçiye ulaştık! Özel hediye çekilişi ve sürprizler için bizi takip edin.
                 </p>
                 <Button
-                  asChild
-                  variant="outline"
-                  className="w-full border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-green-200/50 transition-all duration-300"
+                  type="button"
+                  onClick={() => handleShare(
+                    typeof window !== "undefined" ? window.location.origin + "/hakkimizda" : "",
+                    "35K Takipçi Hediyesi!"
+                  )}
+                  className="flex items-center gap-2 border px-4 py-2 rounded-md text-sm font-semibold bg-white hover:bg-orange-50 text-orange-800 border-green-200 shadow-sm transition-all"
                 >
-                  <Link href="/sayfalarimiz">Sosyal Medya</Link>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-9A2.25 2.25 0 002.25 5.25v13.5A2.25 2.25 0 004.5 21h9a2.25 2.25 0 002.25-2.25V15" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L21 10.5m0 0l-3.75 3.75M21 10.5H9" />
+                  </svg>
+                  Paylaş
                 </Button>
+                {copied && (
+                  <span className="ml-2 text-green-600 text-xs font-medium">Bağlantı kopyalandı!</span>
+                )}
               </CardContent>
             </Card>
           </div>
